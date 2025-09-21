@@ -1,0 +1,25 @@
+﻿@page "{id:int}"
+@model WebApplication1.Pages.Books.DetailsModel
+@{
+    ViewData["Title"] = "Детали книги";
+}
+
+<h1>@Model.Book?.Title</h1>
+
+<div>
+    <h4>Информация о книге</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Автор</dt>
+        <dd class="col-sm-10">@Model.Book?.Author</dd>
+
+        <dt class="col-sm-2">Жанр</dt>
+        <dd class="col-sm-10">@Model.Book?.Genre</dd>
+
+        <dt class="col-sm-2">Статус</dt>
+        <dd class="col-sm-10">@(Model.Book?.IsAvailable ?? false ? "Доступна" : "Выдана")</dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index" class="btn btn-secondary">Назад к списку</a>
+</div>
